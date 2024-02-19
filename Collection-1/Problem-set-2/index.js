@@ -22,3 +22,30 @@ const arr4 = [-56, 34, 22, 66, 90, 17];
 // return value
 
 // Solution
+
+/******************** Question 2 *********************/
+
+//! for a give array
+// return the most repeating number
+// if two numbers repeat the same , return the first number
+// if no repeated , return -1
+
+//? Data
+const num1 = [1, 2, 3, 4, 5];
+const num2 = [44, 23, 44, 12, 44];
+const num3 = [1, 2, 3, 1, 2, 1, 2, 1, 2, 3];
+
+//todo
+// create a fn the recives an arr as argument
+// create an object to store count of each number
+// iterate through the array
+// for each number encounterd, check if it exist in the object
+// if it does, increment its count
+// if it doesnot initialize it count from 1
+// check if the count of the current number is greater then the maxcount, if so set the maxCount to the count of the number
+// or if count is equal to the maxCount and current number is smaller then the most repeated number , set the most repeated num equal to number
+// Return result
+// If any number repeats more than once, return the most repeating number
+// Otherwise, return -1
+
+// Solution

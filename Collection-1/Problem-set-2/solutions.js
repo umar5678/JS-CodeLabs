@@ -53,9 +53,96 @@ function sortAndSecondValue(arr) {
 //? Data
 const num1 = [1, 2, 3, 4, 5];
 const num2 = [44, 23, 44, 12, 44];
-const num3 = [2, 1, 3, 1, 2, 1, 2, 1, 2, 3];
+const num3 = [1, 2, 3, 1, 2, 1, 2, 1, 2, 3];
 
 //todo
-//
+// create a fn the recives an arr as argument
+// create an object to store count of each number
+// iterate through the array
+// for each number encounterd, check if it exist in the object
+// if it does, increment its count
+// if it doesnot initialize it count from 1
+// check if the count of the current number is greater then the maxcount, if so set the maxCount to the count of the number
+// or if count is equal to the maxCount and current number is smaller then the most repeated number , set the most repeated num equal to number
+// Return result
+// If any number repeats more than once, return the most repeating number
+// Otherwise, return -1
+
+// Solution
+
+function mostRepeatingNum(arr) {
+  const numCount = {};
+  let mostRepeatNum = -1;
+  let maxCount = 0;
+
+  for (let num of arr) {
+    if (numCount[num]) {
+      numCount[num]++;
+    } else {
+      numCount[num] = 1;
+    }
+
+    if (
+      numCount[num] > maxCount ||
+      (numCount[num] === maxCount && num != mostRepeatNum)
+    ) {
+      maxCount = numCount[num];
+      mostRepeatNum = num;
+    }
+  }
+
+  return maxCount > 1 ? mostRepeatNum : -1;
+}
+
+// console.log(mostRepeatingNum(num1));
+// console.log(mostRepeatingNum(num2));
+// console.log(mostRepeatingNum(num3));
 
 /******************** Question 3 *********************/
+
+//! for a given string, count the number of letter appeard
+// string will not contain numbers or symbols, it will contain letters only
+
+//todo
+// create a fn that recives string as argument
+// initialize an empty object to store letter counts
+// Iterate through each letter of the input string
+// Update the letter count object accordingly
+// Check if the current letter already exists in the letter count object
+// If it does, increment its count
+// If it doesn't, initialize its count to 1
+// Initialize an empty array to store intermediate results
+// Iterate through the keys of the letter count object
+// Construct the intermediate result by concatenating the count and letter
+// Join the intermediate result array to form the final result string
+
+function letterCounter(str) {
+  const letterCountObj = {};
+
+  for (let letter of str) {
+    if (letterCountObj[letter]) {
+      letterCountObj[letter]++;
+    } else {
+      letterCountObj[letter] = 1;
+    }
+  }
+
+  // let reducedStr = "";
+  // for (let key in letterCountObj) {
+  //   reducedStr += letterCountObj[key] + key;
+  // }
+
+  const resultArray = [];
+  for (let key in letterCountObj) {
+    resultArray.push(letterCountObj[key] + key);
+  }
+
+  return resultArray.join("");
+}
+
+//?Data
+const str1 = "qqqwwrrrrttty";
+const str2 = "synonyms";
+
+console.log(letterCounter(str1));
+console.log(letterCounter(str2));
